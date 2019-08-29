@@ -1,4 +1,4 @@
-ck | SUCCESS => {
+paridhi | SUCCESS => {
     "ansible_facts": {
         "ansible_all_ipv4_addresses": [
             "172.26.41.60"
