@@ -1,0 +1,24 @@
+---
+# tasks file for cond_role
+- name: install apache
+  apt:
+   name: apache2
+   state: latest
+  notify: start apache service
+  when: inventory_hostname == "ck"
+  
+- name: install nginx
+  apt:
+    name: nginx
+    state: latest
+  notify: start nginx
+  when: inventory_hostname == "kd"
+- debug:
+   # msg: "{{ inventory_hostname }}"
+   var: hostvars[ "{{inventory_hostname}}" ][ 'ansible_facts' ][ 'distribution' ]
+    #msg: "{{ hostvars['inventory_hostname']['ansible_facts']['os_family'] }}"
+- name: install php
+  apt:
+    name: php
+    state: latest
+  when: inventory_hostname == "localhost"  

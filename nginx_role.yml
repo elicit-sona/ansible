@@ -1,0 +1,5 @@
+---
+- hosts: ubuntu
+  remote_user: root
+  roles:
+  - { role: nginx_ins }

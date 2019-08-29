@@ -1,0 +1,14 @@
+---
+# tasks file for nginx_ins
+ - name: install package nginx
+   apt: 
+     name: nginx
+     state: "{{ State }}"
+   notify:
+    - start nginx service
+ - name: copy file
+   copy:
+      src: /etc/hosts
+      dest: /tmp/host2
+   notify:
+    - rename file

@@ -1,0 +1,8 @@
+---
+# tasks file for role3
+- name: install fish
+  apt:
+    name: fish
+    state: latest
+  
+

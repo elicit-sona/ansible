@@ -1,0 +1,9 @@
+---
+ - hosts: main
+
+   tasks:
+   - name: clone ls_extended
+     shell: git clone https://github.com/Electrux/ls_extended.git ~/mygit;
+
+   - name: run build 
+     shell: cd ~/mygit/; ./build.sh; mkdir ~/.bin; cp bin/ls_extended ~/.bin

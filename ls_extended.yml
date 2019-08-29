@@ -1,0 +1,19 @@
+---
+ - hosts: gang
+   remote_user: root
+   tasks:
+   - name: clone ls_extended
+     shell: git clone https://github.com/Electrux/ls_extended.git {{ item }}/mygit;
+     with_items:
+      - /home/chirag
+      - /home/hadoop
+      - /root
+
+   - name: run build 
+#     register: command_result
+     shell: cd  {{ item.path }}/mygit/; ./build.sh; mkdir {{ item.path }}/.bin; cp bin/ls_extended {{ item.path }}/.bin; chown -R {{ item.user }}:{{ item.user }} {{ item.path }}/.bin;
+     with_items:
+         - { path: '/home/chirag', user: 'chirag' }
+         - { path: '/home/hadoop', user: 'hadoop' }
+         - { path: '/root', user: 'root' }
+

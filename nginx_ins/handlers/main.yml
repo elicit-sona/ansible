@@ -1,0 +1,9 @@
+---
+# handlers file for nginx_ins
+- name: start nginx service
+  service: name=nginx state=started
+- name: rename file
+  command: mv /tmp/host2 /tmp/myhosts
+
+
+

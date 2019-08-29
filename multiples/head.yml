@@ -1,0 +1,15 @@
+---
+- hosts: group1
+  remote_user: root
+  roles:
+   - { role: role1 }
+
+- hosts: group2
+  remote_user: root
+  roles:
+   - { role: role2 }
+
+- hosts: group3
+  remote_user: root
+  roles:
+   - { role: role3 }

@@ -1,0 +1,8 @@
+---
+# tasks file for role2
+- name: install nginx
+  apt:
+   name: nginx
+   state: latest
+
+  notify: start nginx

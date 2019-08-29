@@ -1,0 +1,5 @@
+---
+# vars file for lamp_ins
+service_name:
+      - mysql
+      - apache2

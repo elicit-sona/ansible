@@ -1,0 +1,32 @@
+---
+# tasks file for lamp_ins
+- name: install lamp
+  apt:
+   name: 
+       - apache2 
+       - mysql-server
+       - php
+       - php-mysql
+   state: present    
+- name: start all services
+  service: 
+    name: "{{ item }}"
+    state: started
+  with_items: "{{ service_name }}"
+    
+  register: catch_output 
+  notify:
+    check service status
+
+- name: create directory
+  file:
+   dest: /var/www/html 
+   state: directory
+   mode: 0755
+
+- name: copy index.html
+  copy:
+   src: index.html
+   dest: /var/www/html/index.html
+- debug:
+     msg: "{{ catch_output }}"

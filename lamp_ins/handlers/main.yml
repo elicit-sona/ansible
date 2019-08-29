@@ -1,0 +1,7 @@
+---
+# handlers file for lamp_ins
+- name: check service status
+  service: 
+    name: "{{ item }}"
+    state: started
+  with_items: "{{ service_name }}"

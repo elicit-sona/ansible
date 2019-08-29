@@ -1,0 +1,9 @@
+---
+- hosts: ubuntu
+  remote_user: root
+  roles:
+   - { role: cond_role }
+#- debug:
+   # msg: "{{ inventory_hostname }}"
+#    msg: "{{ hostvars['inventory_hostname']['ansible_facts']['os_family'] }}"
+

@@ -1,0 +1,9 @@
+---
+- hosts: ubuntu
+  tasks:
+  - name: moving files
+    template: 
+      src: /etc/hosts
+      dest: /tmp/hosts
+
+

@@ -1,0 +1,6 @@
+---
+# handlers file for role
+- name: start nginx
+  service:
+   name: nginx
+   state: started

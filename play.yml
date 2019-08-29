@@ -1,0 +1,28 @@
+---
+- hosts: ubuntu
+  remote_user: root
+  vars:
+   State: present
+
+  tasks:
+  - name: install package nginx
+    apt: 
+     name: nginx
+     state: "{{ State }}"
+    notify:
+    - start nginx service
+  - name: copy file
+    copy:
+      src: /etc/hosts
+      dest: /tmp/host2
+    notify:
+    - rename file
+
+  handlers:
+  - name: start nginx service
+    service: name=nginx state=started
+  - name: rename file
+    command: mv /tmp/host2 /tmp/myhosts
+
+
+    

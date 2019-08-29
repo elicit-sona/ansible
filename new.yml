@@ -1,0 +1,19 @@
+---
+ - hosts: ubuntu
+   remote_user: root
+
+   vars:
+     user:
+     - chirag
+     - hadoop
+     - root
+   tasks:
+   - name: clone ls_extended
+     become: yes
+     become_user: "{{ item }}"
+   
+     shell: rm -rf ~/mygit ~/.bin; git clone https://github.com/Electrux/ls_extended.git ~/mygit &&  cd  ~/mygit/ && ./build.sh && mkdir ~/.bin && cp bin/ls_extended ~/.bin
+     with_items: "{{ user }}" 
+     
+
+
